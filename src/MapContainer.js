@@ -33,7 +33,7 @@ let southeast = {
 class MapContainer extends Component {
 	constructor(props) {
 		super(props)
-		state = {
+		this.state = {
 			clusters: []
 		}
 	}
