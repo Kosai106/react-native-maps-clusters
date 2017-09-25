@@ -28,6 +28,7 @@
   "homepage": "https://github.com/Kosai106/react-native-maps-cluster#readme",
   "peerDependencies": {
     "react-native-maps": "^0.16.4",
-    "geojson": "^0.5.0"
+    "geojson": "^0.5.0",
+    "supercluster": "3.0.0"
   }
 }
