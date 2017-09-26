@@ -91,11 +91,11 @@ class MapContainer extends Component {
 			<MapView {...this.props} onRegionChangeComplete={this.onRegionChangeComplete.bind(this)}>
 				{
 					this.state.clusters.map((item, i) => {
-						const { longitude, latitude } = item.geometry.coordinates
+						const coordinates = item.geometry.coordinates
 						const marker = (
 							<MapView.Marker
 								key={i}
-								coordinate={{ latitude: latitude, longitude: longitude }}
+								coordinate={{ latitude: coordinates[1], longitude: coordinates[0] }}
 								pinColor={'red'} />
 						)
 						const cluster = (

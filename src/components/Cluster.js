@@ -6,8 +6,7 @@ const Cluster = ({
 	item
 }) => {
 	const { point_count, cluster_id } = item.properties
-	//const coords = venue.geometry.coordinates
-	const { longitude, latitude } = item.geometry.coordinates
+	const coordinates = item.geometry.coordinates
 
 	clusterColor = (amount) => {
 		//TODO:
@@ -26,8 +25,7 @@ const Cluster = ({
 
 	return (
 		<MapView.Marker
-			//coordinate={{ latitude: coords[1], longitude: coords[0] }}
-			coordinate={{ latitude: latitude, longitude: longitude }}
+			coordinate={{ latitude: coordinates[1], longitude: coordinates[0] }}
 			width={31}
 			height={31}
 			anchor={{ x: 0.5, y: 0.5 }}
