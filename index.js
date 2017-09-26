@@ -1,3 +1,3 @@
-import * as Clusters from './src/MapContainer'
+import * as MapView from './src/MapContainer'
 
-module.exports = Clusters
+module.exports = MapView

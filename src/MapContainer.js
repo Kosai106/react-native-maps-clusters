@@ -58,26 +58,27 @@ class MapContainer extends Component {
 	}
 
 	render() {
-		const clusters = this.state.clusters.map((item, i) => {
-			const coordinates = item.geometry.coordinates
-			const marker = (
-				<MapView.Marker
-					key={i}
-					coordinate={{ latitude: coordinates[1], longitude: coordinates[0] }}
-					pinColor={'red'} />
-			)
-			const cluster = (
-				<Cluster
-					key={i}
-					item={item} />
-			)
-
-			return (
-				(item.properties.cluster === true) ? cluster : marker
-			)
-		})
 		return (
-			clusters
+			<MapView {...this.props}>
+				{this.state.clusters.map((item, i) => {
+					const coordinates = item.geometry.coordinates
+					const marker = (
+						<MapView.Marker
+							key={i}
+							coordinate={{ latitude: coordinates[1], longitude: coordinates[0] }}
+							pinColor={'red'} />
+					)
+					const cluster = (
+						<Cluster
+							key={i}
+							item={item} />
+					)
+
+					return (
+						(item.properties.cluster === true) ? cluster : marker
+					)
+				})}
+			</MapView>
 		)
 	}
 }
