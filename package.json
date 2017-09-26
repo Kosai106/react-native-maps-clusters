@@ -1,12 +1,12 @@
 {
-  "name": "react-native-maps-cluster",
-  "version": "1.0.0",
+  "name": "react-native-maps-clusters",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kosai106/react-native-maps-cluster.git"
+    "url": "git+https://github.com/Kosai106/react-native-maps-clusters.git"
   },
   "keywords": [
     "react",
@@ -21,9 +21,9 @@
   "author": "Kevin Østerkilde <kevin@oesterkilde.dk> (https://oesterkilde.dk/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Kosai106/react-native-maps-cluster/issues"
+    "url": "https://github.com/Kosai106/react-native-maps-clusters/issues"
   },
-  "homepage": "https://github.com/Kosai106/react-native-maps-cluster#readme",
+  "homepage": "https://github.com/Kosai106/react-native-maps-clusters#readme",
   "peerDependencies": {
     "react-native-maps": "^0.16.4",
     "geojson": "^0.5.0",
