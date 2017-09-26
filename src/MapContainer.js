@@ -4,7 +4,7 @@ import GeoJSON from 'geojson'
 import supercluster from 'supercluster'
 
 // import Marker from './components/Marker'
-// import Cluster from './components/Cluster'
+import Cluster from './components/Cluster'
 
 const initialRegion = {
 	latitude: 55.676098,
@@ -91,18 +91,17 @@ class MapContainer extends Component {
 			<MapView {...this.props} onRegionChangeComplete={this.onRegionChangeComplete.bind(this)}>
 				{
 					this.state.clusters.map((item, i) => {
-						const coordinates = item.geometry.coordinates
+						const { longitude, latitude } = item.geometry.coordinates
 						const marker = (
 							<MapView.Marker
 								key={i}
-								coordinate={{ latitude: coordinates[1], longitude: coordinates[0] }}
+								coordinate={{ latitude: latitude, longitude: longitude }}
 								pinColor={'red'} />
 						)
 						const cluster = (
-							<MapView.Marker
+							<Cluster
 								key={i}
-								coordinate={{ latitude: coordinates[1], longitude: coordinates[0] }}
-								pinColor={'lightblue'} />
+								item={item} />
 						)
 
 						return (
