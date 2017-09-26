@@ -14,17 +14,17 @@ npm install https://github.com/Kosai106/react-native-maps-clusters --save
 
 ## Usage:
 ```js
-import MapView from 'react-native-maps-clusters';
+import MapView from 'react-native-maps';
+import Clusters from 'react-native-maps-clusters';
 
 const view = () => {
   return (
-    <MapView
-      initialRegion={initialRegion}
-      markerData={data}
-    />
+    <MapView>
+      <Clusters markerData={data} />
+    </MapView>
   )
 };
 ```
 
 ## License:
-`MIT`
+MIT
