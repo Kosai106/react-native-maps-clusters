@@ -67,7 +67,7 @@ class MapContainer extends Component {
 
 	render() {
 		return (
-			<MapView {...props}>
+			<MapView {...this.props}>
 				{
 					this.state.clusters.map((item, i) => {
 						const coordinates = item.geometry.coordinates
