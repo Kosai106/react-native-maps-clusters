@@ -60,14 +60,35 @@ class MapContainer extends Component {
 			northeast.longitude,
 			northeast.latitude
 		], this._getZoomLevel(region))
+
 		this.setState({
 			clusters: items
 		})
 	}
 
+	onRegionChangeComplete(region) {
+		northeast = {
+			latitude: region.latitude + region.latitudeDelta / 2,
+			longitude: region.longitude + region.longitudeDelta / 2,
+		}
+		southwest = {
+			latitude: region.latitude - region.latitudeDelta / 2,
+			longitude: region.longitude - region.longitudeDelta / 2,
+		}
+		northwest = {
+			latitude: region.latitude - region.latitudeDelta / 2,
+			longitude: region.longitude + region.longitudeDelta / 2,
+		}
+		southeast = {
+			latitude: region.latitude + region.latitudeDelta / 2,
+			longitude: region.longitude - region.longitudeDelta / 2,
+		}
+		this._createRegions(region)
+	}
+
 	render() {
 		return (
-			<MapView {...this.props}>
+			<MapView {...this.props} onRegionChangeComplete={this.onRegionChangeComplete.bind(this)}>
 				{
 					this.state.clusters.map((item, i) => {
 						const coordinates = item.geometry.coordinates
