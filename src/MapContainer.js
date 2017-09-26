@@ -45,8 +45,8 @@ class MapContainer extends Component {
 		return Math.round(Math.log(360 / region.longitudeDelta) / Math.LN2)
 	}
 
-	_createRegions() {
-		const items = this._createCluster(this.props.markerData).getClusters(bounds, this._getZoomLevel(region))
+	_createRegions(region) {
+		const items = this._createCluster(this.props.markerData).getClusters(bounds, 2)
 
 		this.setState({
 			clusters: items
