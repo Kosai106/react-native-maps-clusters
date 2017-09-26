@@ -54,7 +54,7 @@ class MapContainer extends Component {
 	}
 
 	_createRegions(region) {
-		const items = this._createCluster(this.props.data).getClusters([
+		const items = this._createCluster(this.props.markerData).getClusters([
 			southwest.longitude,
 			southwest.latitude,
 			northeast.longitude,
@@ -67,19 +67,20 @@ class MapContainer extends Component {
 
 	render() {
 		return (
-			<MapView {...this.props}>
+			<MapView {...props}>
 				{
 					this.state.clusters.map((item, i) => {
 						const coordinates = item.geometry.coordinates
-						const latlng = { latitude: coordinates[1], longitude: coordinates[0] }
 						const marker = (
 							<MapView.Marker
-								coordinate={latlng}
+								key={i}
+								coordinate={{ latitude: coordinates[1], longitude: coordinates[0] }}
 								pinColor={'red'} />
 						)
 						const cluster = (
 							<MapView.Marker
-								coordinate={latlng}
+								key={i}
+								coordinate={{ latitude: coordinates[1], longitude: coordinates[0] }}
 								pinColor={'lightblue'} />
 						)
 
