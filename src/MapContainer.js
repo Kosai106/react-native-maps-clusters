@@ -77,7 +77,7 @@ class MapContainer extends Component {
 			)
 		})
 		return (
-			{ clusters }
+			clusters
 		)
 	}
 }
