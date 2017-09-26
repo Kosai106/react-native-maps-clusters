@@ -53,13 +53,13 @@ class MapContainer extends Component {
 		})
 	}
 
-	componentDidMount() {
-		this._createRegions()
+	onRegionChange(region) {
+		this._createRegions(region)
 	}
 
 	render() {
 		return (
-			<MapView {...this.props}>
+			<MapView {...this.props} onRegionChange={this.onRegionChange.bind(this)}>
 				{this.state.clusters.map((item, i) => {
 					const coordinates = item.geometry.coordinates
 					const marker = (
