@@ -9,7 +9,7 @@ npm install react-native-maps supercluster geojson --save
 
 ## Installation:
 ```bash
-npm install https://github.com/Kosai106/react-native-maps-clusters --save
+npm install react-native-maps-clusters --save
 ```
 
 ## Usage:
