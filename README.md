@@ -2,7 +2,7 @@
 
 __Note:__ Rewrite all of this to actually be useful
 
-![alt text](https://github.com/Kosai106/react-native-maps-clusters/blob/master/example.gif "Clusters example")
+![alt text](https://raw.githubusercontent.com/Kosai106/react-native-maps-clusters/master/example.gif "Clusters example")
 
 ## Prerequisites
 ```bash
