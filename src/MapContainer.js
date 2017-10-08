@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import GeoJSON from 'geojson'
 import supercluster from 'supercluster'
 
-import Map from '../components/Map'
-import Marker from '../components/Marker'
-import Cluster from '../components/Cluster'
+import Map from './components/Map'
+import Marker from './components/Marker'
+import Cluster from './components/Cluster'
 
 const initialRegion = {
 	latitude: 55.676098,
