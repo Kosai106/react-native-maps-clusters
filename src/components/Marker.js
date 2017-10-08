@@ -17,7 +17,7 @@ const Marker = ({ item, color, children }) => {
 			activeOpacity={0.8}
 		>
 			<View style={[styles.marker, { backgroundColor: color }]}>
-				<Text style={styles.markerText}>{currency}{price}</Text>
+				<Text numberOfLines={1} style={styles.markerText}>{currency}{price}</Text>
 			</View>
 			<View style={[styles.pointer, { backgroundColor: color }]} />
 			<MapView.Callout tooltip style={{ flexDirection: 'column' }}>
