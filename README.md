@@ -1,4 +1,4 @@
-# React-Native-Maps-Clusters [![Build Status](https://travis-ci.org/Kosai106/react-native-maps-cluster.svg?branch=master)](https://travis-ci.org/Kosai106/react-native-maps-cluster)
+# React-Native-Maps-Clusters [![Build Status](https://travis-ci.org/Kosai106/react-native-maps-clusters.svg?branch=master)](https://travis-ci.org/Kosai106/react-native-maps-clusters)
 
 __Note:__ Rewrite all of this to actually be useful
 
