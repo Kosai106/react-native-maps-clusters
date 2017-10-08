@@ -13,12 +13,12 @@ npm install https://github.com/Kosai106/react-native-maps-clusters --save
 ```
 
 ## Usage:
-```js
+```jsx
 import MapView from 'react-native-maps-clusters';
 
-const view = () => {
+const yourMap = () => {
   return (
-    <MapView markerData={data} />
+    <MapView data={ARRAY_OF_DATA} />
   )
 };
 ```

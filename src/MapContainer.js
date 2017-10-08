@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import MapView from 'react-native-maps'
 import GeoJSON from 'geojson'
 import supercluster from 'supercluster'
 
-// import Marker from './components/Marker'
-import Cluster from './components/Cluster'
+import Map from '../components/Map'
+import Marker from '../components/Marker'
+import Cluster from '../components/Cluster'
 
 const initialRegion = {
 	latitude: 55.676098,
@@ -40,21 +40,19 @@ class MapContainer extends Component {
 
 	_createCluster(data) {
 		const items = GeoJSON.parse(data, { Point: ['latitude', 'longitude'] })
-		const cluster = supercluster({
-			radius: 60,
-			maxZoom: 16,
-			nodeSize: 256
-		})
+		const cluster = supercluster({ radius: 60, maxZoom: 16, nodeSize: 256 })
 		cluster.load(items.features)
 		return cluster;
 	}
 
 	_getZoomLevel(region) {
-		return Math.round(Math.log(360 / region.longitudeDelta) / Math.LN2)
+		const angle = region.longitudeDelta;
+		const level = Math.round(Math.log(360 / angle) / Math.LN2);
+		return level;
 	}
 
 	_createRegions(region) {
-		const items = this._createCluster(this.props.markerData).getClusters([
+		const items = this._createCluster(this.props.data).getClusters([
 			southwest.longitude,
 			southwest.latitude,
 			northeast.longitude,
@@ -88,28 +86,18 @@ class MapContainer extends Component {
 
 	render() {
 		return (
-			<MapView {...this.props} onRegionChangeComplete={this.onRegionChangeComplete.bind(this)}>
+			<Map
+				initialRegion={initialRegion}
+				onRegionChangeComplete={(x) => { this.onRegionChangeComplete(x) }}
+				{...this.props}
+			>
 				{
-					this.state.clusters.map((item, i) => {
-						const coordinates = item.geometry.coordinates
-						const marker = (
-							<MapView.Marker
-								key={i}
-								coordinate={{ latitude: coordinates[1], longitude: coordinates[0] }}
-								pinColor={'red'} />
-						)
-						const cluster = (
-							<Cluster
-								key={i}
-								item={item} />
-						)
-
-						return (
-							(item.properties.cluster === true) ? cluster : marker
-						)
-					})
+					this.state.clusters.map((item, i) => (item.properties.cluster === true) ?
+						<Cluster key={i} item={item} /> :
+						<Marker key={i} item={item} />
+					)
 				}
-			</MapView>
+			</Map>
 		)
 	}
 }
