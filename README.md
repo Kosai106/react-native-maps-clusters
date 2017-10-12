@@ -7,6 +7,7 @@ __Note:__ Rewrite all of this to actually be useful
 ## Prerequisites
 ```bash
 npm install react-native-maps supercluster geojson --save
+react-native link react-native-maps
 ```
 
 ## Installation:

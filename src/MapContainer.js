@@ -40,7 +40,7 @@ class MapContainer extends Component {
 
 	_createCluster(data) {
 		const items = GeoJSON.parse(data, { Point: ['latitude', 'longitude'] })
-		const cluster = supercluster({ radius: 60, maxZoom: 16, nodeSize: 256 })
+		const cluster = supercluster({ radius: 60, maxZoom: 16, nodeSize: 64 })
 		cluster.load(items.features)
 		return cluster;
 	}
