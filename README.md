@@ -1,14 +1,13 @@
-# React-Native-Maps-Clusters [![Build Status](https://travis-ci.org/Kosai106/react-native-maps-clusters.svg?branch=master)](https://travis-ci.org/Kosai106/react-native-maps-clusters)
+# React-Native-Maps-Clusters
 
-__Note:__ Rewrite all of this to actually be useful
+_A simple solution for providing clustering to [React-Native-Maps](https://github.com/airbnb/react-native-maps) for both Android and iOS_
+
+[![Build Status](https://travis-ci.org/Kosai106/react-native-maps-clusters.svg?branch=master)](https://travis-ci.org/Kosai106/react-native-maps-clusters)
+[![npm version](https://badge.fury.io/js/react-native-maps-clusters.svg)](https://badge.fury.io/js/react-native-maps-clusters)
+
+__Example gif:__
 
 ![alt text](https://raw.githubusercontent.com/Kosai106/react-native-maps-clusters/master/example.gif "Clusters example")
-
-## Prerequisites
-```bash
-npm install react-native-maps supercluster geojson --save
-react-native link react-native-maps
-```
 
 ## Installation:
 ```bash
@@ -31,6 +30,12 @@ const yourMap = () => {
   )
 };
 ```
+
+Todo
+----
+
+- Allow for custom marker and cluster icons
+- Write tests
 
 License
 --------
