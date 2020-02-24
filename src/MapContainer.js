@@ -16,21 +16,18 @@ const initialRegion = {
 let northeast = {
 	latitude: initialRegion.latitude + initialRegion.latitudeDelta / 2,
 	longitude: initialRegion.longitude + initialRegion.longitudeDelta / 2,
-}
-let southwest = {
+}, southwest = {
 	latitude: initialRegion.latitude - initialRegion.latitudeDelta / 2,
 	longitude: initialRegion.longitude - initialRegion.longitudeDelta / 2,
-}
-let northwest = {
+}, northwest = {
 	latitude: initialRegion.latitude - initialRegion.latitudeDelta / 2,
 	longitude: initialRegion.longitude + initialRegion.longitudeDelta / 2,
-}
-let southeast = {
+}, southeast = {
 	latitude: initialRegion.latitude + initialRegion.latitudeDelta / 2,
 	longitude: initialRegion.longitude - initialRegion.longitudeDelta / 2,
 }
 
-class MapContainer extends Component {
+class MapView extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -85,21 +82,19 @@ class MapContainer extends Component {
 	}
 
 	render() {
+		const { clusters } = this.state
 		return (
 			<Map
 				initialRegion={initialRegion}
-				onRegionChangeComplete={(x) => { this.onRegionChangeComplete(x) }}
 				{...this.props}
-			>
-				{
-					this.state.clusters.map((item, i) => (item.properties.cluster === true) ?
-						<Cluster key={i} item={item} /> :
-						<Marker key={i} item={item} />
-					)
-				}
+				onRegionChangeComplete={(x) => { this.onRegionChangeComplete(x) }}>
+				{clusters.map((item, i) => (item.properties.cluster === true)
+					? <Cluster key={i} item={item} />
+					: <Marker key={i} item={item} />
+				)}
 			</Map>
 		)
 	}
 }
 
-export default MapContainer
+export default MapView

@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import MapView from 'react-native-maps'
 
-const Marker = ({ item, color, children }) => {
-	const coords = item.geometry.coordinates
+const Marker = (props) => {
+	const { item, color, children } = this.props
 	const { price, currency } = item.properties
+	const coords = item.geometry.coordinates
 
 	return (
 		<MapView.Marker
@@ -14,13 +15,14 @@ const Marker = ({ item, color, children }) => {
 			anchor={{ x: 0.5, y: 0.75 }}
 			calloutOffset={{ x: 100, y: 50 }}
 			calloutAnchor={{ x: 0.5, y: 0 }}
-			activeOpacity={0.8}
-		>
+			activeOpacity={0.8}>
 			<View style={[styles.marker, { backgroundColor: color }]}>
-				<Text numberOfLines={1} style={styles.markerText}>{currency}{price}</Text>
+				<Text numberOfLines={1} style={styles.markerText}>
+					{currency}{price}
+				</Text>
 			</View>
 			<View style={[styles.pointer, { backgroundColor: color }]} />
-			<MapView.Callout tooltip style={{ flexDirection: 'column' }}>
+			<MapView.Callout tooltip style={styles.tooltip}>
 				{children}
 			</MapView.Callout>
 		</MapView.Marker>
@@ -30,7 +32,7 @@ const Marker = ({ item, color, children }) => {
 const styles = StyleSheet.create({
 	marker: {
 		position: 'relative',
-		backgroundColor: 'black',
+		backgroundColor: '#000000',
 		alignItems: 'center',
 		justifyContent: 'center',
 		padding: 4,
@@ -38,20 +40,23 @@ const styles = StyleSheet.create({
 	},
 	markerText: {
 		fontSize: 12,
-		color: 'white',
+		color: '#FFFFFF',
 	},
 	pointer: {
 		width: 10,
 		height: 10,
-		backgroundColor: 'black',
+		backgroundColor: '#000000',
 		alignSelf: 'center',
 		transform: [{ rotate: '45deg' }],
 		top: -6,
-	}
+	},
+	tooltip: {
+		flexDirection: 'column',
+	},
 })
 
 Marker.defaultProps = {
-	color: 'black'
+	color: '#000000'
 }
 
 export default Marker

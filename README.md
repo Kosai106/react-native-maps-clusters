@@ -11,12 +11,14 @@ __Example gif:__
 
 ## Installation:
 ```bash
+yarn add react-native-maps-clusters
+or
 npm install react-native-maps-clusters --save
 ```
 
 ## Usage:
 ```jsx
-import MapView from 'react-native-maps-clusters';
+import { MapView, Marker, Cluster } from 'react-native-maps-clusters';
 
 const data = [
   { id: 1, currency: '€', price: 123, latitude: 55.6732765, longitude: 12.5670903 },
@@ -26,7 +28,11 @@ const data = [
 
 const yourMap = () => {
   return (
-    <MapView data={data} />
+    <MapView
+      data={data}
+      markerItem={() => <Marker item={item} />}
+      clusterItem={() => <Cluster item={item} />}
+    />
   )
 };
 ```

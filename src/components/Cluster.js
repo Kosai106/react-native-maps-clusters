@@ -2,17 +2,21 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import MapView from 'react-native-maps'
 
-const Cluster = ({ item, color }) => {
+const iconOuterSize = 40
+const iconInnerSize = iconOuterSize - 10
+const markerSize = iconOuterSize + 1
+
+const Cluster = (props) => {
+	const { item, color } = props
 	const { point_count, cluster_id } = item.properties
 	const coordinates = item.geometry.coordinates
 
 	return (
 		<MapView.Marker
 			coordinate={{ latitude: coordinates[1], longitude: coordinates[0] }}
-			width={41}
-			height={41}
-			anchor={{ x: 0.5, y: 0.5 }}
-		>
+			width={markerSize}
+			height={markerSize}
+			anchor={{ x: 0.5, y: 0.5 }}>
 			<View style={[styles.clusterOuter, { backgroundColor: `rgba(${color}, 0.25)` }]}>
 				<View style={[styles.cluster, { backgroundColor: `rgb(${color})` }]}>
 					<Text style={styles.clusterText}>
@@ -26,22 +30,22 @@ const Cluster = ({ item, color }) => {
 
 const styles = StyleSheet.create({
 	clusterOuter: {
-		width: 40,
-		height: 40,
-		borderRadius: 40 / 2,
+		width: iconOuterSize,
+		height: iconOuterSize,
+		borderRadius: iconOuterSize / 2,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
 	cluster: {
-		width: 30,
-		height: 30,
-		borderRadius: 30 / 2,
+		width: iconInnerSize,
+		height: iconInnerSize,
+		borderRadius: iconInnerSize / 2,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
 	clusterText: {
 		fontSize: 12,
-		color: 'white',
+		color: '#FFFFFF',
 	},
 })
 
