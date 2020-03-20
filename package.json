@@ -2,7 +2,7 @@
   "name": "react-native-maps-cluster",
   "description": "A simple solution for providing clustering to React-Native-Maps",
   "author": "Kevin Østerkilde <kevin@oesterkilde.dk> (https://oesterkilde.dk/)",
-  "version": "next",
+  "version": "1.0.5",
   "license": "MIT",
   "repository": {
     "type": "git",
