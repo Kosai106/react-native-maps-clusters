@@ -1,9 +1,9 @@
 {
-  "name": "react-native-maps-clusters",
-  "version": "1.0.5",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "name": "react-native-maps-cluster",
+  "description": "A simple solution for providing clustering to React-Native-Maps",
+  "author": "Kevin Østerkilde <kevin@oesterkilde.dk> (https://oesterkilde.dk/)",
+  "version": "next",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kosai106/react-native-maps-clusters.git"
@@ -18,15 +18,51 @@
     "cluster",
     "clustering"
   ],
-  "author": "Kevin Østerkilde <kevin@oesterkilde.dk> (https://oesterkilde.dk/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Kosai106/react-native-maps-clusters/issues"
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
   },
-  "homepage": "https://github.com/Kosai106/react-native-maps-clusters#readme",
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
+  },
   "peerDependencies": {
-    "react-native-maps": "^0.16.4",
+    "react": ">=16",
+    "react-native": "*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "module": "dist/react-native-maps-cluster.esm.js",
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-native": "^0.61.23",
+    "@types/supercluster": "^5.0.2",
     "geojson": "^0.5.0",
-    "supercluster": "3.0.0"
+    "husky": "^4.2.3",
+    "react": "^16.13.1",
+    "react-native-maps": "^0.27.1",
+    "supercluster": "^7.0.0",
+    "tsdx": "^0.13.0",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
   }
 }
