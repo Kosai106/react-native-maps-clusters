@@ -2,7 +2,7 @@
   "name": "react-native-maps-clusters",
   "description": "A simple solution for providing clustering to React-Native-Maps",
   "author": "Kevin Østerkilde <kevin@oesterkilde.dk> (https://oesterkilde.dk/)",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -50,17 +50,19 @@
     "trailingComma": "es5"
   },
   "module": "dist/react-native-maps-cluster.esm.js",
+  "dependencies": {
+    "geojson": "^0.5.0",
+    "react-native-maps": "^0.27.1",
+    "supercluster": "^7.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
     "@types/react-native": "^0.61.23",
     "@types/supercluster": "^5.0.2",
-    "geojson": "^0.5.0",
     "husky": "^4.2.3",
     "react": "^16.13.1",
-    "react-native-maps": "^0.27.1",
-    "supercluster": "^7.0.0",
     "tsdx": "^0.13.0",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3"
